@@ -1,0 +1,571 @@
+
+/* =========================
+   1. CONFIGURACIÓN BASE
+   ========================= */
+
+/* Reset */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Variables */
+:root {
+    --verde: #0F766E;
+    --verde-oscuro: #0B2C2F;
+    --verde-menta: #b8ede1;
+    --verde-claro: #E5F5F1;
+    --texto: #244447;
+    --gris: #687C7D;
+    --fondo: #F7FAF9;
+    --blanco: #FFFFFF;
+    --borde: #DCE9E6;
+    --radio: 1rem;
+}
+
+/* Tamaño base */
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+/* Estilos generales */
+body {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--texto);
+    background-color: var(--fondo);
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3 {
+    color: var(--verde-oscuro);
+}
+
+/* 2. CLASES GENERALES */
+
+.contenedor {
+    width: 90%;
+    max-width: 72rem;
+    margin: 0 auto;
+}
+
+.seccion {
+    padding: 4rem 0;
+}
+
+.subtitulo {
+    display: inline-flex;
+    align-items: center;
+    color: var(--verde);
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    background-color:var(--verde-menta);
+    border-radius: 90rem;
+}
+
+.boton {
+    display:inline-flex;
+    gap: 0.65rem;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem 1.45rem;
+    border: none;
+    border-radius: 2rem;
+    background-color: var(--verde);
+    color: var(--blanco);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: var(--verde-oscuro);
+}
+
+.boton-secundario {
+    color: var(--verde-oscuro);
+    background: var(--blanco);
+    border-color: var(--borde)
+  }
+
+.boton-secundario:hover {
+     background: var(--verde-menta); 
+}
+
+.titulo-seccion {
+    text-align: start;
+    margin-bottom: 2rem;
+}
+
+.titulo-seccion h2 {
+    font-size: 2rem;
+    margin-bottom: 0.7rem;
+}
+
+.titulo-seccion > p:last-child {
+    color: var(--gris);
+}
+
+/* 3. ENCABEZADO - FLEXBOX*/
+
+
+.encabezado {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--blanco);
+    border-bottom: 1px solid var(--borde);
+}
+
+.encabezado__contenido {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 5rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.logo img {
+    width: 2.5rem;
+}
+
+.logo strong {
+    color: var(--verde);
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.menu a:hover {
+    color: var(--verde);
+}
+
+/* 4. PORTADA - GRID */
+
+.portada {
+    background-color: var(--verde-claro);
+    padding: 4rem 0;
+}
+
+.portada__contenido {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+.portada__texto h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.portada__texto > p:not(.subtitulo) {
+    color: var(--gris);
+    margin-bottom: 1.5rem;
+}
+
+.portada__imagen img {
+    width: 100%;
+}
+
+/*  5. SERVICIOS - GRID */
+
+
+.servicios__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+}
+
+.servicio {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 0;
+    padding: 1.6rem;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio-grande);
+    background: var(--blanco);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+ }
+
+
+.servicio__icono {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.8rem;
+    color: var(--verde);
+    background-color: var(--verde-claro);
+    font-size: 1.5rem;
+}
+
+.servicio_pie {
+    flex-grow: 1;
+    color: var(--gris);
+}
+
+
+.servicio strong{
+    color: var(--verde-oscuro);
+}
+
+
+/*6. SOBRE NOSOTROS - GRID*/
+
+.nosotros {
+    background-color: var(--verde-claro);
+}
+
+.nosotros__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    gap: 3rem;
+}
+
+.nosotros__imagen img {
+    width: 100%;
+}
+
+.nosotros__texto h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+.nosotros__texto > p:not(.subtitulo) {
+    color: var(--gris);
+    margin-bottom: 1rem;
+ }
+
+.nosotros__texto h3 {
+    margin-bottom: 0.8rem;
+}
+
+.beneficios {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.beneficio > span { 
+    display: inline-flex; 
+    padding: 1rem;
+    place-items: center; 
+    flex: 0 0 2.7rem; height: 2.7rem; 
+    border-radius: 0.8rem; 
+    color: var(--verde); background:
+     var(--blanco); 
+     font-weight: 800; }
+
+/* 7. EQUIPO - GRID*/
+
+.equipo__grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 1.5rem;
+ }
+.profesional { 
+    border: 1px solid var(--borde);
+     border-radius: var(--radio); 
+     background: var(--blanco); }
+
+.profesional > img { 
+    width: 100%; 
+    background: var(--verde-oscuro); }
+
+.profesional__datos { 
+    padding: 1.3rem; 
+}
+.profesional__datos h3 { 
+    font-size: 1.05rem; 
+}
+.profesional__datos p {
+     margin-top: 0.25rem; 
+     color: var(--texto); 
+     font-size: 0.85rem; 
+    }
+.etiquetas { d
+    isplay: flex; 
+    flex-wrap: wrap; 
+    gap: 0.5rem; 
+    margin-top: 1rem; 
+}
+.etiquetas span { 
+    padding: 0.35rem 0.7rem; 
+    border-radius: 99rem; 
+    color: var(--verde); 
+    background: var(--verde-suave); 
+    font-size: 0.75rem; 
+    font-weight: 700; }
+
+
+
+/* 8. TESTIMONIOS - GRID */
+
+.testimonios {
+    background-color: var(--verde-claro);
+}
+
+.testimonios__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.opinion {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--blanco);
+    border-radius: var(--radio);
+}
+
+.opinion p:first-child {
+    color: #E5A629;
+}
+
+.opinion h3 {
+    margin-top: auto;
+}
+
+/*9. CONTACTO Y FORMULARIO*/
+
+.contacto__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+.contacto__datos h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contacto__datos > p:not(.subtitulo) {
+    color: var(--gris);
+    margin-bottom: 1rem;
+}
+
+.dato {
+    margin-top: 1rem;
+}
+
+.dato p {
+    color: var(--gris);
+}
+
+.formulario {
+    padding: 1.5rem;
+    background-color: var(--blanco);
+    border: 1px solid var(--borde);
+    border-radius: var(--radio);
+}
+
+.formulario h3 {
+    margin-bottom: 1rem;
+}
+
+.formulario__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.campo--ancho {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid var(--borde);
+    border-radius: 0.5rem;
+    background-color: var(--fondo);
+}
+
+.formulario button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* =========================
+   10. PIE DE PÁGINA - GRID
+   ========================= */
+
+.pie {
+    padding-top: 3rem;
+    background-color: var(--verde-oscuro);
+    color: var(--blanco);
+}
+
+.pie__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.pie h3 {
+    color: var(--blanco);
+    margin-bottom: 0.8rem;
+}
+
+.pie p,
+.pie a {
+    display: block;
+    color: #D4E4E1;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.pie a:hover {
+    color: var(--blanco);
+}
+
+.pie__final {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+    border-top: 1px solid #42615F;
+}
+
+.pie__final p {
+    font-size: 0.8rem;
+}
+
+/* =========================
+   11. DISEÑO RESPONSIVE
+   ========================= */
+
+/* TABLET GRANDE */
+@media (max-width: 1024px) {
+
+    .servicios__grid,
+    .equipo__grid,
+    .testimonios__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pie__grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+
+    .encabezado__contenido {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 1rem 0;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .portada__contenido,
+    .nosotros__grid,
+    .contacto__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .portada__texto {
+        text-align: center;
+    }
+
+    .portada__imagen {
+        max-width: 30rem;
+        margin: auto;
+    }
+
+}
+
+/* CELULAR */
+@media (max-width: 480px) {
+
+    .seccion {
+        padding: 3rem 0;
+    }
+
+    .portada__texto h1 {
+        font-size: 2.2rem;
+    }
+
+    .servicios__grid,
+    .equipo__grid,
+    .testimonios__grid,
+    .pie__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campo--ancho {
+        grid-column: auto;
+    }
+
+    .menu {
+        gap: 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    .pie__final {
+        flex-direction: column;
+    }
+
+}
